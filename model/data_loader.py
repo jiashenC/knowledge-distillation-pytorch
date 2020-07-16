@@ -36,12 +36,12 @@ def fetch_dataloader(types, params):
         transforms.ToTensor(),
         transforms.Normalize((0.4914, 0.4822, 0.4465), (0.247, 0.243, 0.261))])
 
-    trainset = torchvision.datasets.CIFAR10(root='./data-cifar10', train=True,
+    trainset = torchvision.datasets.CIFAR10(root='/data/jiashenc/cifar10', train=True,
         download=True, transform=train_transformer)
     trainloader = torch.utils.data.DataLoader(trainset, batch_size=params.batch_size,
         shuffle=True, num_workers=params.num_workers, pin_memory=params.cuda)
 
-    devset = torchvision.datasets.CIFAR10(root='./data-cifar10', train=False,
+    devset = torchvision.datasets.CIFAR10(root='/data/jiashenc/cifar10', train=False,
         download=True, transform=dev_transformer)
     devloader = torch.utils.data.DataLoader(devset, batch_size=params.batch_size,
         shuffle=False, num_workers=params.num_workers, pin_memory=params.cuda)
@@ -78,10 +78,10 @@ def fetch_subset_dataloader(types, params):
         transforms.ToTensor(),
         transforms.Normalize((0.4914, 0.4822, 0.4465), (0.247, 0.243, 0.261))])
 
-    trainset = torchvision.datasets.CIFAR10(root='./data-cifar10', train=True,
+    trainset = torchvision.datasets.CIFAR10(root='/data/jiashenc/cifar10', train=True,
         download=True, transform=train_transformer)
 
-    devset = torchvision.datasets.CIFAR10(root='./data-cifar10', train=False,
+    devset = torchvision.datasets.CIFAR10(root='/data/jiashenc/cifar10', train=False,
         download=True, transform=dev_transformer)
 
     trainset_size = len(trainset)
